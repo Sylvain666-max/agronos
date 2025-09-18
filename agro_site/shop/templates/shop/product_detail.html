@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name }} - Boutique{% endblock %}
+{% block content %}
+{% load static %}
+<div class="row">
+  <div class="col-md-6">
+    {% if product.image %}
+    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded border">
+    {% else %}
+    <img src="{% static 'img/product_placeholder.jpg' %}" class="img-fluid rounded border" alt="Produit">
+    {% endif %}
+  </div>
+  <div class="col-md-6">
+    <h1 class="h3">{{ product.name }}</h1>
+    <p class="text-muted">
+      {% if product.category %}
+    <p>Catégorie : {{ product.category.name }}</p>
+     {% else %}
+    <p>Catégorie : Non spécifiée</p>
+     {% endif %}
+
+    </p>
+    <p class="lead fw-bold">{{ product.price }} FCFA</p>
+    <p>{{ product.description|linebreaks }}</p>
+    <form action="{% url 'shop:cart_add' product.id %}" method="post" class="d-flex align-items-end gap-2">
+      {% csrf_token %}
+      <div>
+        <label for="qty" class="form-label">Quantité</label>
+        <input type="number" id="qty" name="quantity" value="1" min="1" class="form-control" style="max-width:120px">
+      </div>
+      <button class="btn btn-success">Ajouter au panier</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

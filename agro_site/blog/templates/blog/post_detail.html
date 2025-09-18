@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }} - AgroPlateforme{% endblock %}
+
+{% block content %}
+<article class="container my-4">
+  <div class="card shadow-sm">
+    {% if post.image %}
+      <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+    {% endif %}
+
+    <div class="card-body">
+      <h1 class="card-title mb-2">{{ post.title }}</h1>
+      <p class="text-muted mb-3">
+        {% if post.category %}{{ post.category.name }} · {% endif %}
+        Publié le {{ post.created_at|date:"d/m/Y" }}
+      </p>
+
+      <div class="content mb-3">
+        {{ post.content|linebreaks }}
+      </div>
+
+      {# 🎓 Zone Premium : vidéo visible uniquement si payée #}
+      {% if post.price %}
+        {% if purchased %}
+          {# Vidéo uploadée #}
+          {% if post.video %}
+            <div class="mb-3">
+              <video class="w-100 rounded shadow" controls>
+                <source src="{{ post.video.url }}" type="video/mp4">
+              </video>
+            </div>
+          {% endif %}
+
+          {# Vidéo externe (YouTube/Vimeo) #}
+          {% if post.video_url %}
+            <div class="ratio ratio-16x9 mb-3">
+              <iframe src="{{ post.video_url }}" title="Vidéo de formation" allowfullscreen></iframe>
+            </div>
+          {% endif %}
+        {% else %}
+          <div class="alert alert-warning">
+            ⚠️ Cette formation est réservée aux membres ayant effectué l’achat.
+          </div>
+          <a href="{% url 'blog:post_checkout' post.id %}" class="btn btn-primary">
+            Acheter cette formation ({{ post.price }} FCFA)
+          </a>
+        {% endif %}
+      {% endif %}
+
+    </div>
+  </div>
+</article>
+{% endblock %}

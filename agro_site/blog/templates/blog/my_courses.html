@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Mes Formations - AgroPlateforme{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+  <h2 class="mb-4">📚 Mes Formations</h2>
+
+  {% if purchases %}
+    <div class="row">
+      {% for post in purchases %}
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm h-100">
+            {% if post.image %}
+              <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="text-muted mb-2">
+                Catégorie : {{ post.category.name }}
+              </p>
+              <a href="{% url 'blog:post_detail' post.id %}" class="btn btn-success w-100">
+                ▶️ Accéder à la formation
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-info">
+      Vous n’avez encore acheté aucune formation.  
+      <a href="{% url 'blog:post_list' %}">Voir toutes les formations disponibles</a>.
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

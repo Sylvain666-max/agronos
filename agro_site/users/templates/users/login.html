@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles2.css'%}">
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background: linear-gradient(135deg, #4CAF50, #2E7D32);">
+  <div class="card shadow-lg p-4" style="max-width: 420px; width: 100%; border-radius: 20px;">
+    
+    <!-- En-tête -->
+    <div class="text-center mb-4">
+      <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="user" width="80" class="mb-2">
+      <h2 class="fw-bold text-dark mb-1">Connexion</h2>
+      <p class="text-muted">Accédez à votre espace personnel</p>
+    </div>
+
+    <!-- Formulaire -->
+    <form method="post" novalidate>
+      {% csrf_token %}
+
+      <div class="mb-4">
+        <label for="id_username" class="form-label custom-label">👤 Nom d’utilisateur</label>
+        {{ form.username|add_class:"form-control form-control-lg rounded-3 shadow-sm" }}
+      </div>
+
+      <div class="mb-4">
+        <label for="id_password" class="form-label custom-label">🔑 Mot de passe</label>
+        {{ form.password|add_class:"form-control form-control-lg rounded-3 shadow-sm" }}
+      </div>
+
+      <button type="submit" class="btn btn-success w-100 py-2 fw-bold shadow-sm rounded-3">
+        ✅ Se connecter
+      </button>
+    </form>
+
+    <!-- Pied -->
+    <div class="mt-4 text-center">
+      <p class="mb-1">Pas encore de compte ? 
+        <a href="{% url 'users:signup' %}" class="fw-bold text-success">Créer un compte</a>
+      </p>
+      <a href="#" class="text-decoration-none text-muted small">Mot de passe oublié ?</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

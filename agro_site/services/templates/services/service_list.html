@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Services - AgroPlateforme{% endblock %}
+{% block content %}
+<h1 class="h3 mb-3">Nos services</h1>
+<div class="row g-3">
+  {% for s in services %}
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title"><a href="{{ s.get_absolute_url }}">{{ s.name }}</a></h5>
+        <p class="card-text">{{ s.short_description|default:s.description|truncatechars:140 }}</p>
+        {% if s.price_from %}<p class="fw-bold">À partir de {{ s.price_from }} FCFA</p>{% endif %}
+        <a href="{{ s.get_absolute_url }}" class="btn btn-outline-secondary mt-auto">Demander un devis</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <p>Les services seront disponibles bientôt.</p>
+  {% endfor %}
+</div>
+{% endblock %}

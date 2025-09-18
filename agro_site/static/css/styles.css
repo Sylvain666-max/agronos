@@ -1,0 +1,58 @@
+body { background-color: #fafafa; }
+.navbar-brand span { letter-spacing: .5px; }
+.card img { object-fit: cover; height: 160px; }
+
+.navbar .logo {
+    height: 100%;       /* Prend toute la hauteur de la navbar */
+    object-fit: contain; /* Garde les proportions du logo */
+}
+
+.hover-shadow {
+  transition: all 0.3s ease-in-out;
+}
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+.footer-premium {
+  background: linear-gradient(135deg, #198754, #0d6efd);
+  color: #fff;
+}
+
+/* Boutons */
+.footer-premium a.btn {
+  transition: all 0.3s ease;
+}
+
+.footer-premium a.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Icônes sociales */
+.footer-premium .social-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.footer-premium .social-icon:hover {
+  transform: scale(1.2);
+}
+
+.footer-premium .social-logo {
+  height: 30px;
+  width: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-premium .row {
+    text-align: center;
+  }
+}
+/* Empêcher le redimensionnement des textarea générés par Django */
+textarea {
+    resize: none;
+}

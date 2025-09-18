@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}{{ service.name }} - Services{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+  <!-- Colonne gauche : Détail du service + paiement -->
+  <div class="col-md-7">
+    <h1 class="h3">{{ service.name }}</h1>
+    <p class="lead">{{ service.short_description }}</p>
+    <div class="content mb-3">
+      {{ service.description|linebreaks }}
+    </div>
+
+    {% if service.price_from %}
+      <p class="fw-bold mt-3">Tarif : à partir de {{ service.price_from }} FCFA</p>
+
+      <!-- Bouton Stripe -->
+      <form id="stripe-payment-form" method="POST" action="{% url 'services:service_checkout' service.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary mt-2">Acheter ce service</button>
+      </form>
+    {% else %}
+      <span class="badge bg-secondary">Ce service est gratuit ou nécessite un devis</span>
+    {% endif %}
+  </div>
+
+  <!-- Colonne droite : Formulaire de devis -->
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-header">Demande de devis</div>
+      <div class="card-body">
+        <form method="post" class="row g-3">
+          {% csrf_token %}
+          <div class="col-12">
+            {{ form.name.label_tag }} {{ form.name }}
+          </div>
+          <div class="col-md-6">
+            {{ form.email.label_tag }} {{ form.email }}
+          </div>
+          <div class="col-md-6">
+            {{ form.phone.label_tag }} {{ form.phone }}
+          </div>
+          <div class="col-12">
+            {{ form.message.label_tag }} {{ form.message }}
+          </div>
+          <div class="col-12">
+            <button class="btn btn-success mt-2">Envoyer la demande</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Paiement - Checkout{% endblock %}
+{% block content %}
+<h1 class="h3 mb-3">Finaliser la commande</h1>
+<div class="row g-4">
+  <div class="col-md-7">
+    <form method="post" class="row g-3">
+      {% csrf_token %}
+      <div class="col-md-6">{{ form.full_name.label_tag }} {{ form.full_name }}</div>
+      <div class="col-md-6">{{ form.email.label_tag }} {{ form.email }}</div>
+      <div class="col-md-6">{{ form.phone.label_tag }} {{ form.phone }}</div>
+      <div class="col-md-6">{{ form.city.label_tag }} {{ form.city }}</div>
+      <div class="col-12">{{ form.address.label_tag }} {{ form.address }}</div>
+      <div class="col-md-6">{{ form.payment_method.label_tag }} {{ form.payment_method }}</div>
+      <div class="col-12">{{ form.notes.label_tag }} {{ form.notes }}</div>
+      <div class="col-12"><a href="{% url 'shop:checkout'%}" class="btn btn-success">
+  <button class="btn btn-success btn-lg">Confirmer la commande</button>
+</a></div>
+    </form>
+  </div>
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-header">Résumé du panier</div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          {% for item in cart %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ item.product.name }} × {{ item.quantity }}
+            <span>{{ item.total_price }} FCFA</span>
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <strong>Total</strong>
+          <strong>{{ cart.get_total_price }} FCFA</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

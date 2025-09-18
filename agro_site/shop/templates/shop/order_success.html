@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Commande confirmée{% endblock %}
+{% block content %}
+<div class="text-center py-5">
+  <h1 class="display-6">Merci pour votre commande !</h1>
+  <p class="lead">Votre commande n° <strong>{{ order.id }}</strong> est enregistrée (statut : {{ order.get_status_display }})</p>
+  <a href="/" class="btn btn-outline-success">Retour à l'accueil</a>
+</div>
+{% endblock %}

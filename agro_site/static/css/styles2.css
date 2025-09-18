@@ -1,0 +1,53 @@
+.custom-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1b5e20; /* Vert foncé bien lisible */
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-control {
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #43a047;
+  box-shadow: 0 0 6px rgba(67, 160, 71, 0.4);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #43a047, #1b5e20);
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #66bb6a, #2e7d32);
+  transform: translateY(-2px);
+}
+
+/* Optimisation très petits écrans */
+@media (max-width: 360px) {
+  .card {
+    padding: 1rem !important;
+    border-radius: 10px;
+  }
+
+  h2 {
+    font-size: 1.4rem; /* Titre plus petit */
+  }
+
+  .form-control-lg {
+    font-size: 0.9rem; /* Champs un peu plus compacts */
+    padding: 0.55rem 0.75rem;
+  }
+
+  .btn-lg {
+    font-size: 1rem;
+    padding: 0.55rem;
+  }
+}

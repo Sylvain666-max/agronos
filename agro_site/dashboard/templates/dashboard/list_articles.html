@@ -1,0 +1,31 @@
+{% extends 'dashboard/base_dashboard.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Articles</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Publié</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr>
+            <td>{{ article.id }}</td>
+            <td>{{ article.title }}</td>
+            <td>{{ article.published }}</td>
+            <td>
+                <a href="{% url 'dashboard:dashboard_edit_article' article.id %}" class="btn btn-sm btn-primary">Modifier</a>
+                <a href="{% url 'dashboard:dashboard_delete_article' article.id %}" class="btn btn-sm btn-danger">Supprimer</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4">Aucun article</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

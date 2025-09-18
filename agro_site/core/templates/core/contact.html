@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Contact - AgroPlateforme{% endblock %}
+{% block content %}
+<h1>Contact</h1>
+<form method="post" class="row g-3">
+  {% csrf_token %}
+  <div class="col-md-6">{{ form.name.label_tag }} {{ form.name }}</div>
+  <div class="col-md-6">{{ form.email.label_tag }} {{ form.email }}</div>
+  <div class="col-md-6">{{ form.phone.label_tag }} {{ form.phone }}</div>
+  <div class="col-md-6">{{ form.subject.label_tag }} {{ form.subject }}</div>
+  <div class="col-12">{{ form.message.label_tag }} {{ form.message }}</div>
+  <div class="col-12"><button class="btn btn-success">Envoyer</button></div>
+</form>
+{% endblock %}

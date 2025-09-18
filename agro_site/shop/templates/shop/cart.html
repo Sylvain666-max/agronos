@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Panier{% endblock %}
+{% block content %}
+<h1 class="h3">Votre panier</h1>
+{% if cart|length %}
+<table class="table align-middle">
+  <thead>
+    <tr>
+      <th>Produit</th>
+      <th>Quantité</th>
+      <th>Prix</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in cart %}
+    <tr>
+      <td>{{ item.product.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.price }} FCFA</td>
+      <td>{{ item.total_price }} FCFA</td>
+      <td><a href="{% url 'shop:cart_remove' item.product.id %}" class="btn btn-sm btn-outline-danger">Retirer</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<div class="d-flex justify-content-between">
+  <a href="{% url 'shop:product_list' %}" class="btn btn-outline-secondary">Continuer les achats</a>
+  <div class="text-end">
+    <p class="fs-5">Total: <strong>{{ cart.get_total_price }} FCFA</strong></p>
+    <a href="{% url 'shop:checkout' %}" class="btn btn-success btn-lg">Passer à la caisse</a>
+  </div>
+</div>
+{% else %}
+<p>Votre panier est vide.</p>
+<a href="{% url 'shop:product_list' %}" class="btn btn-outline-success">Aller à la boutique</a>
+{% endif %}
+{% endblock %}
