@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'users',
     'widget_tweaks',
     'taggit',
-    'corsheaders'
+    'corsheaders',
+    'dj_database_url',
 ]
 
 MIDDLEWARE = [
