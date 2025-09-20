@@ -89,10 +89,9 @@ WSGI_APPLICATION = 'agro_site.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=True
+    "default":dj_database_url.config(
+        default='postgresql://agrobase_user:XExo70zIVo0iA3T3VcR1lhbvJhCyW3cw@dpg-d36r4j63jp1c73bfikv0-a/agrobase'  # ta DB Render
+
     )
 }
 
