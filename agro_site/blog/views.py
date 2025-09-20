@@ -115,7 +115,7 @@ def stripe_webhook(request):
 
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
-from .models import Post, VideoPurchase
+from agro_site.blog.models import Post, VideoPurchase
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)

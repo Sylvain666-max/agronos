@@ -88,7 +88,7 @@ def order_success(request, order_id):
 from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 import stripe
-from .models import Order
+from agro_site.shop.models import Order
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
