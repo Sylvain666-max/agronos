@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from django.db.models import Q
-from .models import Product, Category, Order, OrderItem
-from .forms import AddToCartForm, CheckoutForm
-from .cart import Cart
-from .models import Order
+from agro_site.shop.models import Product, Category, Order, OrderItem
+from agro_site.shop.forms import AddToCartForm, CheckoutForm
+from agro_site.shop.cart import Cart
+from agro_site.shop.models import Order
 import stripe
 from django.conf import settings
 

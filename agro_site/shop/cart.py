@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
-from .models import Product
+from agro_site.shop.models import Product
 
 CART_SESSION_ID = 'cart'
 

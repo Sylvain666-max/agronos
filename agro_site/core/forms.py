@@ -1,5 +1,5 @@
 from django import forms
-from .models import ContactMessage
+from agro_site.core.models import ContactMessage
 
 class ContactForm(forms.ModelForm):
     class Meta:

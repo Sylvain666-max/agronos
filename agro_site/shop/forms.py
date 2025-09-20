@@ -1,5 +1,5 @@
 from django import forms
-from .models import Order
+from agro_site.shop.models import Order
 
 class AddToCartForm(forms.Form):
     quantity = forms.IntegerField(min_value=1, initial=1, widget=forms.NumberInput(attrs={'class': 'form-control', 'style': 'max-width:120px'}))

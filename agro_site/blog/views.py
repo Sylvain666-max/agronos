@@ -2,8 +2,8 @@ from pyexpat.errors import messages
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
-from .models import Post, Category,VideoPurchase
-from .forms import SearchForm
+from agro_site.blog.models import Post, Category,VideoPurchase
+from agro_site.blog.forms import SearchForm
 import stripe
 from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect

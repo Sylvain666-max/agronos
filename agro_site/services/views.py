@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-from .models import Service, Purchase
-from .forms import QuoteForm
+from agro_site.services.models import Service, Purchase
+from agro_site.services.forms import QuoteForm
 import stripe
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt

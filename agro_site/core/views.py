@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from blog.models import Post
-from shop.models import Product
-from services.models import Service
-from .forms import ContactForm
+from agro_site.blog.models import Post
+from agro_site.shop.models import Product
+from agro_site.services.models import Service
+from agro_site.core.forms import ContactForm
 from django.contrib import messages
 
 def home(request):
