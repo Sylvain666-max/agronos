@@ -90,8 +90,8 @@ WSGI_APPLICATION = 'agro_site.wsgi.application'
 
 DATABASES = {
     "default":dj_database_url.config(
-        default='postgresql://agrobase_user:XExo70zIVo0iA3T3VcR1lhbvJhCyW3cw@dpg-d36r4j63jp1c73bfikv0-a/agrobase'  # ta DB Render
-
+        default='postgresql://agrobase_user:XExo70zIVo0iA3T3VcR1lhbvJhCyW3cw@dpg-d36r4j63jp1c73bfikv0-a/agrobase',  # ta DB Render
+        engine="django.db.backends.postgresql_psycopg2" 
     )
 }
 
