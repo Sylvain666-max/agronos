@@ -65,7 +65,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'agro_site.urls'
+ROOT_URLCONF = 'agro_site.agro_site.urls'
 
 TEMPLATES = [
     {
