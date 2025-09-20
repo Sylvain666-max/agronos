@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
-from agro_site.blog.models import Post
-from agro_site.shop.models import Product
-from agro_site.services.models import Service
-from agro_site.dashboard.forms import PostForm, ProductForm, ServiceForm
+from blog.models import Post
+from shop.models import Product
+from services.models import Service
+from .forms import PostForm, ProductForm, ServiceForm
 from django.contrib import messages
 
 

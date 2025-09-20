@@ -2,8 +2,8 @@ from pyexpat.errors import messages
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from django.db.models import Q
-from agro_site.blog.models import Post, Category,VideoPurchase
-from agro_site.blog.forms import SearchForm
+from .models import Post, Category,VideoPurchase
+from .forms import SearchForm
 import stripe
 from django.conf import settings
 from django.shortcuts import get_object_or_404, redirect
@@ -115,7 +115,7 @@ def stripe_webhook(request):
 
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
-from agro_site.blog.models import Post, VideoPurchase
+from .models import Post, VideoPurchase
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)

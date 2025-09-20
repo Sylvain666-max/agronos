@@ -1,5 +1,5 @@
 from django import forms
-from agro_site.services.models import QuoteRequest
+from .models import QuoteRequest
 
 class QuoteForm(forms.ModelForm):
     class Meta:

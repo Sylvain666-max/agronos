@@ -42,12 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'agro_site.core',
-    'agro_site.blog',
-    'agro_site.shop',
-    'agro_site.services',
-    'agro_site.dashboard',
-    'agro_site.users',
+    'core',
+    'blog',
+    'shop',
+    'services',
+    'dashboard',
+    'users',
     'widget_tweaks',
     'taggit',
     'corsheaders',
@@ -65,7 +65,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'agro_site.agro_site.urls'
+ROOT_URLCONF = 'agro_site.urls'
 
 TEMPLATES = [
     {

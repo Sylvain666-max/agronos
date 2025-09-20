@@ -2,19 +2,19 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from agro_site.core.views import home, about, contact_view
+from core.views import home, about, contact_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('a-propos/', about, name='about'),
     path('contact/', contact_view, name='contact'),
-    path('blog/', include('agro_site.blog.urls')),
-    path('shop/', include('agro_site.shop.urls')),
-    path('services/', include('agro_site.services.urls',namespace='services')),
-    path("dashboard/", include("agro_site.dashboard.urls", namespace='dashboard')),
-    path('', include('agro_site.core.urls')),
-    path('users',include('agro_site.users.urls'))
+    path('blog/', include('blog.urls')),
+    path('shop/', include('shop.urls')),
+    path('services/', include('services.urls',namespace='services')),
+    path("dashboard/", include("dashboard.urls", namespace='dashboard')),
+    path('', include('core.urls')),
+    path('users',include('users.urls'))
 
 ]
 

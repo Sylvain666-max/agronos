@@ -1,5 +1,5 @@
 from django.contrib import admin
-from agro_site.core.models import ContactMessage
+from .models import ContactMessage
 
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):

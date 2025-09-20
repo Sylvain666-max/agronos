@@ -1,5 +1,5 @@
 from django.urls import path
-from agro_site.shop import views
+from . import views
 
 app_name = 'agro_site.shop'
 

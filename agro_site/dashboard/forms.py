@@ -1,8 +1,8 @@
 from django import forms
-from agro_site.blog.models import Post
-from agro_site.shop.models import Product
-from agro_site.services.models import Service
-from agro_site.blog.models import Post
+from blog.models import Post
+from shop.models import Product
+from services.models import Service
+from blog.models import Post
 
 class PostForm(forms.ModelForm):
     class Meta:

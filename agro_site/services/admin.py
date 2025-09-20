@@ -1,5 +1,5 @@
 from django.contrib import admin
-from agro_site.services.models import Service, QuoteRequest
+from .models import Service, QuoteRequest
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
