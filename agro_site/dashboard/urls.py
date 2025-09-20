@@ -1,7 +1,7 @@
 from django.urls import path
 from agro_site.dashboard import views
 
-app_name = 'dashboard'
+app_name = 'agro_site.dashboard'
 
 urlpatterns = [
     path('', views.dashboard_home, name='dashboard_home'),
