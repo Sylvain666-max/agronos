@@ -9,12 +9,12 @@ urlpatterns = [
     path('', home, name='home'),
     path('a-propos/', about, name='about'),
     path('contact/', contact_view, name='contact'),
-    path('blog/', include('blog.urls')),
-    path('shop/', include('shop.urls')),
-    path('services/', include('services.urls',namespace='services')),
-    path("dashboard/", include("dashboard.urls", namespace='dashboard')),
-    path('', include('core.urls')),
-    path('users',include('users.urls'))
+    path('blog/', include('agro_site.blog.urls')),
+    path('shop/', include('agro_site.shop.urls')),
+    path('services/', include('agro_site.services.urls',namespace='services')),
+    path("dashboard/", include("agro_site.dashboard.urls", namespace='dashboard')),
+    path('', include('agro_site.core.urls')),
+    path('users',include('agro_site.users.urls'))
 
 ]
 
