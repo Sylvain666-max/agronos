@@ -1,3 +1,4 @@
 
 *.pyc
 agro_site/media/
+.env
