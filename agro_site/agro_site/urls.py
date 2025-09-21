@@ -9,12 +9,12 @@ urlpatterns = [
     path('', home, name='home'),
     path('a-propos/', about, name='about'),
     path('contact/', contact_view, name='contact'),
-    path('blog/', include('blog.urls'),namespace='blog'),
+    path('blog/', include('blog.urls')),
     path('shop/', include('shop.urls')),
     path('services/', include('services.urls',namespace='services')),
     path("dashboard/", include("dashboard.urls", namespace='dashboard')),
     path('', include('core.urls')),
-    path('users',include('users.urls'),namespace='users')
+    path('users',include('users.urls'))
 
 ]
 
