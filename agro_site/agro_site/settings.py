@@ -24,10 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY","change_this_in_prod")
-
+SECRET_KEY='!xao5cmsm45llw#vl65n5)%m%@wfjte*ltjl^ilzn4i8ppg_$('
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG","FALSE")=="TRUE"
+DEBUG = True
 
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOST','*').split(",")
@@ -89,10 +88,10 @@ WSGI_APPLICATION = 'agro_site.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    "default":dj_database_url.config(
-        default='postgresql://agrobase_user:XExo70zIVo0iA3T3VcR1lhbvJhCyW3cw@dpg-d36r4j63jp1c73bfikv0-a/agrobase',  # ta DB Render
-       
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # ton fichier SQLite sera à la racine du projet
+    }
 }
 
 # Password validation
@@ -146,9 +145,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Stripe
-STRIPE_PUBLIC_KEY = os.getenv("STRIPE_PUBLIC_KEY")
-STRIPE_SECRET_KEY =os.getenv("STRIPE_SECRET_KEY")
-STRIPE_WEBHOOK_SECRET =os.getenv("STRIPE_WEBHOOK_STRIPE") 
+STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY =os.environ.get("STRIPE_SECRET_KEY")
+STRIPE_WEBHOOK_SECRET =os.environ.get("STRIPE_WEBHOOK_SECRET")
+ 
 
 CORS_ALLOW_ALL_ORIGINS=True
 
