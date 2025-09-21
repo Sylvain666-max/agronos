@@ -151,3 +151,22 @@ STRIPE_SECRET_KEY =os.getenv("STRIPE_SECRET_KEY")
 STRIPE_WEBHOOK_SECRET =os.getenv("STRIPE_WEBHOOK_STRIPE") 
 
 CORS_ALLOW_ALL_ORIGINS=True
+
+import sys
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+    },
+}
+
