@@ -121,10 +121,10 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     purchased = False
 
-    if request.user.is_authenticated:
-        purchased = VideoPurchase.objects.filter(user=request.user, post=post).exists()
-    else:
-        messages.info(request, "Veuillez vous connecter pour accéder à cette formation.")
+    #if request.user.is_authenticated:
+       # purchased = VideoPurchase.objects.filter(user=request.user, post=post).exists()
+    #else:
+       # messages.info(request, "Veuillez vous connecter pour accéder à cette formation.")
 
     context = {
         "post": post,

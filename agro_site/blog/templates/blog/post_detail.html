@@ -21,15 +21,15 @@
 
       {# 🎓 Zone Premium : vidéo visible uniquement si payée #}
       {% if post.price %}
-        {% if purchased %}
-          {# Vidéo uploadée #}
-          {% if post.video %}
-            <div class="mb-3">
-              <video class="w-100 rounded shadow" controls>
-                <source src="{{ post.video.url }}" type="video/mp4">
+        
+        {# Vidéo uploadée #}
+        {% if post.video %}
+          <div class="mb-3">
+            <video class="w-100 rounded shadow" controls>
+              <source src="{{ post.video.url }}" type="video/mp4">
               </video>
-            </div>
-          {% endif %}
+          </div>
+        {% endif %}
 
           {# Vidéo externe (YouTube/Vimeo) #}
           {% if post.video_url %}
@@ -45,7 +45,7 @@
             Acheter cette formation via Whatsapp
           </a>
         {% endif %}
-      {% endif %}
+      
 
     </div>
   </div>
