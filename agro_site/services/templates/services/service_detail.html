@@ -15,10 +15,9 @@
       <p class="fw-bold mt-3">Tarif : à partir de {{ service.price_from }} FCFA</p>
 
       <!-- Bouton Stripe -->
-      <form id="stripe-payment-form" method="POST" action="{% url 'services:service_checkout' service.id %}">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-primary mt-2">Acheter ce service</button>
-      </form>
+      <a href="https://wa.me/2290162508449?text= Bonjour ,je suis interessé par vôtre service: {{service.name}} (Prix:{{post.price}} FCFA)" class="btn btn-primary">
+            Acheter cette formation via Whatsapp
+      </a>
     {% else %}
       <span class="badge bg-secondary">Ce service est gratuit ou nécessite un devis</span>
     {% endif %}

@@ -30,7 +30,7 @@
         
         {% if post.price %}
           <p class="fw-bold text-success mb-2">{{ post.price }} FCFA</p>
-          <a href="{% url 'blog:post_checkout' post.id %}" class="btn btn-success mt-auto">Acheter</a>
+          <a href="{url 'blog:post_detail' }" target="_blank" class="btn btn-success mt-auto">Acheter via Whatsapp</a>
         {% else %}
           <span class="badge bg-secondary mt-auto">Gratuit</span>
         {% endif %}

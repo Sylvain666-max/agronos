@@ -22,14 +22,9 @@
     </p>
     <p class="lead fw-bold">{{ product.price }} FCFA</p>
     <p>{{ product.description|linebreaks }}</p>
-    <form action="{% url 'shop:cart_add' product.id %}" method="post" class="d-flex align-items-end gap-2">
-      {% csrf_token %}
-      <div>
-        <label for="qty" class="form-label">Quantité</label>
-        <input type="number" id="qty" name="quantity" value="1" min="1" class="form-control" style="max-width:120px">
-      </div>
-      <button class="btn btn-success">Ajouter au panier</button>
-    </form>
+    <a href="https://wa.me/2290162508449?text= Bonjour , je voudrais acheté ce Produit: {{product.name}} (Prix:{{product.price}} FCFA)" class="btn btn-primary">
+            Acheter cette formation via Whatsapp
+    </a>
   </div>
 </div>
 {% endblock %}

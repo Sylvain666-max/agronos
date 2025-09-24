@@ -41,8 +41,8 @@
           <div class="alert alert-warning">
             ⚠️ Cette formation est réservée aux membres ayant effectué l’achat.
           </div>
-          <a href="{% url 'blog:post_checkout' post.id %}" class="btn btn-primary">
-            Acheter cette formation ({{ post.price }} FCFA)
+          <a href="https://wa.me/2290162508449?text= Bonjour , je voudrais acheté cette formation: {{post.title}} (Prix:{{post.price}} FCFA)" class="btn btn-primary">
+            Acheter cette formation via Whatsapp
           </a>
         {% endif %}
       {% endif %}
